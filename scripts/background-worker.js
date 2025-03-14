@@ -1,5 +1,19 @@
-import axios from 'axios';
-const BASE_URL = 'https://website-monitoring-service.onrender.com';
+const axios = require('axios');
+const express = require('express');
+
+const app = express();
+require('dotenv').config();
+
+const BASE_URL = process.env.BASE_URL;
+const PORT = process.env.PORT;
+
+app.get('/', (req, res) => {
+  res.send('<html><body>🟢</body></html>');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 async function checkMonitors() {
   try {
@@ -22,5 +36,4 @@ async function checkMonitors() {
 }
 
 console.log('Starting continuous monitor checks...');
-console.log('Press Ctrl+C to stop');
 checkMonitors();
