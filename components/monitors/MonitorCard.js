@@ -12,8 +12,9 @@ export default function MonitorCard({ monitor, onDelete }) {
         await axios.delete(`/api/monitors/${monitor._id}`);
         onDelete(monitor._id);
       } catch (error) {
-        console.error("Failed to delete monitor", error);
-        alert("Failed to delete monitor");
+        const message = error.response.data.message;
+        console.log(error);
+        alert(message);
       }
     }
   };

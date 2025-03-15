@@ -19,6 +19,10 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "POST") {
+      if (decoded.fullName === 'Demo User') {
+        return res.status(403).json({ message: 'You cannot delete monitors in demo account. Please create a personal account to continue.' });
+      }
+      
       const { name, url, method, interval, timeout, expectedStatusCode } = req.body;
 
       const newMonitor = new Monitor({

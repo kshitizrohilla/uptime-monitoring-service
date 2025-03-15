@@ -12,6 +12,7 @@ export default async function handler(req, res) {
 
   try {
     const decoded = verify(token, process.env.JWT_SECRET);
+    console.log(decoded);
     await connectMongo();
 
     const { id } = req.query;
@@ -77,6 +78,10 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "DELETE") {
+      if (decoded.fullName === 'Demo User') {
+        return res.status(403).json({ message: 'You cannot delete monitors in demo account. Please create a personal account to continue.' });
+      }
+      
       const result = await Monitor.deleteOne({ _id: id, user: decoded.id });
 
       if (result.deletedCount === 0) {

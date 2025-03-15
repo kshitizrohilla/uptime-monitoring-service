@@ -4,6 +4,38 @@ import MonitorCard from "../../components/monitors/MonitorCard";
 import Topbar from '@/components/Topbar';
 import CreateMonitorModal from "../../components/monitors/CreateMonitorModal";
 
+import { parse } from 'cookie';
+import jwt from 'jsonwebtoken';
+
+export async function getServerSideProps({ req }) {
+  const cookies = req.headers.cookie || '';
+  const { token } = parse(cookies);
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  try {
+    jwt.verify(token, process.env.JWT_SECRET);
+  } catch (error) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
+
 export default function Monitors() {
   const [monitors, setMonitors] = useState([]);
   const [loading, setLoading] = useState(true);

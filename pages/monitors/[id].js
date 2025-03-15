@@ -7,6 +7,38 @@ import UptimeChart from "../../components/monitors/UptimeChart";
 import ResponseTimeChart from "../../components/monitors/ResponseTimeChart";
 import DateRangePicker from "../../components/monitors/DateRangePicker";
 
+import { parse } from 'cookie';
+import jwt from 'jsonwebtoken';
+
+export async function getServerSideProps({ req }) {
+  const cookies = req.headers.cookie || '';
+  const { token } = parse(cookies);
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  try {
+    jwt.verify(token, process.env.JWT_SECRET);
+  } catch (error) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
+
 export default function MonitorDetail() {
   const router = useRouter();
   const { id } = router.query;
@@ -68,8 +100,9 @@ export default function MonitorDetail() {
         await axios.delete(`/api/monitors/${id}`);
         router.push("/monitors");
       } catch (error) {
-        console.error("Failed to delete monitor", error);
-        alert("Failed to delete monitor");
+        const message = error.response.data.message;
+        console.log(error);
+        alert(message);
       }
     }
   };

@@ -38,6 +38,7 @@ export default function CreateMonitorModal({ isOpen, onClose, onSuccess }) {
       });
     } catch (error) {
       setError(error.response?.data?.message || "An error occurred");
+      alert(error.response.data.message);
     } finally {
       setIsLoading(false);
     }

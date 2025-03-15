@@ -129,20 +129,20 @@ export default function Home() {
                 <div className="mt-4 sm:mt-6 sm:flex sm:justify-center lg:justify-start">
                   <div className="rounded-md shadow">
                     <Link
-                      href="/signup"
+                      href="/login"
                       className="w-full flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
                     >
-                      Get started
+                      View Demo
                     </Link>
                   </div>
-                  <div className="mt-3 sm:mt-0 sm:ml-3">
+                  {/* <div className="mt-3 sm:mt-0 sm:ml-3">
                     <Link
                       href="#features"
                       className="w-full flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200"
                     >
                       Learn more
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </main>
@@ -168,91 +168,62 @@ export default function Home() {
               Comprehensive monitoring tools to ensure your websites are always up and running at peak performance.
             </p>
           </div>
-          <div className="mt-12">
-            <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <div className="relative p-4 bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-blue-500 to-blue-600"></div>
               <div className="relative">
-                <div className="relative p-4 bg-white rounded-xl shadow-lg overflow-hidden">
-                  <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-blue-500 to-blue-600"></div>
-                  <div className="relative">
-                    <div className="h-10 w-10 rounded-md bg-blue-600 flex items-center justify-center">
-                      <svg
-                        className="h-5 w-5 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <p className="mt-3 text-base font-medium text-gray-900">Real-time Monitoring</p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Monitor your websites 24/7 with customizable check intervals as low as 1 minute.
-                    </p>
-                  </div>
+                <div className="h-10 w-10 rounded-md bg-blue-600 flex items-center justify-center">
+                  <svg
+                    className="h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
                 </div>
+                <p className="mt-3 text-base font-medium text-gray-900">Real-time Monitoring</p>
+                <p className="mt-1 text-sm text-gray-500">
+                  Monitor your websites 24/7 with customizable check intervals as low as 1 minute.
+                </p>
               </div>
+            </div>
+            <div className="relative p-4 bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-blue-500 to-blue-600"></div>
               <div className="relative">
-                <div className="relative p-4 bg-white rounded-xl shadow-lg overflow-hidden">
-                  <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-blue-500 to-blue-600"></div>
-                  <div className="relative">
-                    <div className="h-10 w-10 rounded-md bg-blue-600 flex items-center justify-center">
-                      <svg
-                        className="h-5 w-5 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
-                    </div>
-                    <p className="mt-3 text-base font-medium text-gray-900">Instant Alerts</p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Get notified immediately when your website goes down through multiple channels.
-                    </p>
-                  </div>
+                <div className="h-10 w-10 rounded-md bg-blue-600 flex items-center justify-center">
+                  <svg
+                    className="h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    />
+                  </svg>
                 </div>
-              </div>
-              <div className="relative">
-                <div className="relative p-4 bg-white rounded-xl shadow-lg overflow-hidden">
-                  <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-blue-500 to-blue-600"></div>
-                  <div className="relative">
-                    <div className="h-10 w-10 rounded-md bg-blue-600 flex items-center justify-center">
-                      <svg
-                        className="h-5 w-5 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                        />
-                      </svg>
-                    </div>
-                    <p className="mt-3 text-base font-medium text-gray-900">Detailed Analytics</p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      View comprehensive uptime statistics and response time graphs for all your websites.
-                    </p>
-                  </div>
-                </div>
+                <p className="mt-3 text-base font-medium text-gray-900">Detailed Analytics</p>
+                <p className="mt-1 text-sm text-gray-500">
+                  View comprehensive uptime statistics and response time graphs for all your websites.
+                </p>
               </div>
             </div>
           </div>
+
+
+
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             <div className="relative p-4 bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-blue-500 to-blue-600"></div>

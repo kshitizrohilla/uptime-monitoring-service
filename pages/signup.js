@@ -20,6 +20,10 @@ export async function getServerSideProps({ req }) {
         },
       };
     } catch (error) {
+      res.setHeader(
+        "Set-Cookie",
+        "token=; Max-Age=0; Path=/; HttpOnly; SameSite=Strict"
+      );
     }
   }
 
