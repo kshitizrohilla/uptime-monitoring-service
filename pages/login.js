@@ -3,6 +3,31 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import { parse } from 'cookie';
+import jwt from 'jsonwebtoken';
+
+export async function getServerSideProps({ req }) {
+  const cookies = req.headers.cookie || '';
+  const { token } = parse(cookies);
+
+  if (token) {
+    try {
+      jwt.verify(token, process.env.JWT_SECRET);
+      return {
+        redirect: {
+          destination: '/dashboard',
+          permanent: false,
+        },
+      };
+    } catch (error) {
+    }
+  }
+
+  return {
+    props: {},
+  };
+}
+
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);

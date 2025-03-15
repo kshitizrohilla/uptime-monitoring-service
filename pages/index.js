@@ -2,6 +2,31 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
+import { parse } from 'cookie';
+import jwt from 'jsonwebtoken';
+
+export async function getServerSideProps({ req }) {
+  const cookies = req.headers.cookie || '';
+  const { token } = parse(cookies);
+
+  if (token) {
+    try {
+      jwt.verify(token, process.env.JWT_SECRET);
+      return {
+        redirect: {
+          destination: '/dashboard',
+          permanent: false,
+        },
+      };
+    } catch (error) {
+    }
+  }
+
+  return {
+    props: {},
+  };
+}
+
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
